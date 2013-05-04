@@ -34,8 +34,7 @@ void add_num_to_binFile(char *bin_name)
 {
     FILE *bin_file;
     int i, *arr;
-    if (!(bin_file = fopen(bin_name, "wb+")))
-    {
+    if (!(bin_file = fopen(bin_name, "wb+"))) {
         puts("###Can't open binary file");
         exit(0);
     }
@@ -50,8 +49,7 @@ void add_num_to_textFile(char *text_name)
 {
     FILE *text_file;
     int i, *arr;
-    if (!(text_file = fopen(text_name, "wt+")))
-    {
+    if (!(text_file = fopen(text_name, "wt+"))) {
         puts("###Can't open text file");
         exit(0);
     }
@@ -66,8 +64,7 @@ void print_textFile(char *text_name)
 {
     FILE *text_file;
     char buf[BUF_SIZE];
-    if (!(text_file = fopen(text_name, "rt")))
-    {
+    if (!(text_file = fopen(text_name, "rt"))) {
         puts("###Can't open text file");
         exit(0);
     }
@@ -83,8 +80,7 @@ void print_binFile(char *bin_name)
 {
     FILE *bin_file;
     int num;
-    if (!(bin_file = fopen(bin_name, "rb")))
-    {
+    if (!(bin_file = fopen(bin_name, "rb"))) {
         puts("###Can't open binary file");
         exit(0);
     }
@@ -100,8 +96,7 @@ void writing_new_bin_file(int *firstArray, char *bin_name)
 {
     int i;
     FILE *bin_file;
-    if (!(bin_file = fopen(bin_name, "wb")))
-    {
+    if (!(bin_file = fopen(bin_name, "wb"))) {
         puts("###Can't open binary file");
         exit(0);
     }
@@ -117,13 +112,11 @@ void delete_numbers(char *text_name, char *bin_name)
     int i, j, k, num, *firstArray, *secondArray;
     firstArray = (int *) malloc(MAX_NUM * sizeof(int));
     secondArray = (int *) malloc(MAX_NUM * sizeof(int));
-    if (!(bin_file = fopen(bin_name, "rb")))
-    {
+    if (!(bin_file = fopen(bin_name, "rb"))) {
         puts("###Can't open binary file");
         exit(0);
     }
-    if (!(text_file = fopen(text_name, "rt")))
-    {
+    if (!(text_file = fopen(text_name, "rt"))) {
         puts("###Can't open text file");
         exit(0);
     }
@@ -186,7 +179,7 @@ void print_menu(char *text_name, char *bin_name)
             puts("###Wrong input, try again");
             break;
         }
-    } 
+    }
 }
 
 void readme(void)
@@ -200,14 +193,13 @@ void readme(void)
 
 int main(int argc, char *argv[])
 {
-	const char *options = "t:b:h";
+    const char *options = "t:b:h";
     int opt;
     char *text_name, *bin_name;
     opt = getopt(argc, argv, options);
-    if (argc < 2 && opt != 'h')
-    {
-    	puts("too small arguments. use -h for help");
-    	exit(0);
+    if (argc < 2 && opt != 'h') {
+        puts("too small arguments. use -h for help");
+        exit(0);
     }
     while (opt != -1) {
         switch (opt) {
